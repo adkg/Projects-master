@@ -1,0 +1,1068 @@
+#controls * { margin:0; padding:0; font-family:"Segoe UI",tahoma,helvetica,sans-serif;  }
+body { overflow:hidden; }
+
+/* Main layout for content */
+.ui-layout-east {
+   background-color: #fefefe;
+   width:345px;
+   display: block;
+   z-index: 3;
+   position:absolute;
+   right:0;
+   height:100%;
+   overflow:visible;
+}
+
+.ui-layout-center {
+   height:100%;
+   display: block;
+   z-index: 2;
+   float:left;
+   overflow: auto;
+}
+
+#layout-center {
+   width:896px;
+   background-color:rgb(230,230,230);
+   overflow:scroll;
+   position:absolute;
+   left:0;
+   top:0;
+   height:100%;
+}
+
+/* Tab panel in the right */
+#controls {
+   position:absolute;
+   right:0;
+   width:332px;
+   background-color:rgb(237,237,237);
+   overflow:hidden;
+   top:0;
+   height:100%;
+}
+
+#controls #properties_placeholder {
+   height:300px;
+   text-align:center;
+   padding-top:40%;
+   color:rgb(140,140,140);
+}
+
+#controls #controlset {
+   background:#fff;
+   clear:left;
+   font-size:12px;
+   height:100%;
+   overflow:hidden;
+   padding:7px 20px 0;
+}
+#controls #controlset .controlpane { border:0; display:none; overflow:none;}
+#controls #controlset .current { display: block !important; }
+#controls #controlset div.controlpane fieldset {
+   border:0;
+   clear:left;
+   display:block;
+   font-weight:normal;
+   margin-bottom:5px;
+   width:281px;
+}
+#controls #controlset div.controlpane fieldset legend {
+   border:0;
+   color:rgb(68,68,68);
+   font-size:16px;
+   margin:0 0 10px;
+   padding:0;
+   padding-top:5px;
+   font-weight:bold;
+   padding-bottom: 7px;
+}
+
+#controls #controlset #tb_control_properties fieldset legend,  
+#controls #controlset #form_properties_controls fieldset legend {
+   padding-bottom:7px;
+}
+
+#controls .tool_group_divider { display:block; margin-bottom:10px; border:0; border-bottom:1px solid rgb(140,140,140); height:0;}
+
+#controls .tabsform {
+   font-family:Helvetica;
+   position: relative;
+   z-index: 0;
+   display: block;
+   height:inherit;
+   overflow-y:auto !important;
+}
+#controls .tabsform > section {
+    float: left;
+    z-index: 1;
+   height:inherit;
+}
+#controls .tabsform > section > div {
+   position: absolute;
+   left: 0;
+   width: 90%;
+   display: none;
+   padding: 0 10px;
+   font: 12px Arial;
+   overflow: auto;
+   min-height: 200px;
+   margin:0;
+}
+
+/*********************************************************************/
+/* Control Pane Tabs */
+#controls #control_toolbar {
+   background-image:url('../../editordata/images/control_bg.png');
+   background-position:bottom left;
+   background-repeat:repeat-x;
+   height:36px;
+   margin:0;
+   padding:0;
+}
+#controls #control_toolbar a {
+   border:0;
+   color:rgb(120,120,120);
+   cursor: pointer;
+   display:inline-block;
+   float:left;
+   font-family:tahoma,helvetica,sans-serif;
+   font-size:12px;
+   height:20px;
+   margin:0;
+   overflow:hidden;
+   padding:16px 0 0px;
+   text-align:center;
+   text-decoration:none;
+   width:100px;
+}
+#controls #control_toolbar a:hover {
+   color:rgb(0,0,0);
+}
+#controls #control_toolbar a.current {
+   background-image:url('../../editordata/images/control_tab.png');
+   background-position:top left;
+   background-repeat:repeat-x;
+   color:rgb(0,0,0);
+   width:112px;
+}
+
+
+/*********************************************************************/
+/* Element Buttons */
+#controls span.object_control_button {
+   background-position:top left;
+   background-repeat:no-repeat;
+   color:transparent;
+   cursor:pointer;
+   display:block;
+   float:left;
+   height:11px;
+   margin-right:5px;
+   margin-top:5px;
+   text-indent:-9999em;
+   width:11px;
+}
+#controls span.object_control_button:hover {
+   background-position:bottom left;
+}
+#controls span#addhiddenitem, 
+#controls span#add_droplist_item,
+#controls span#addcheckitem,
+#controls span#addradioitem,
+#controls span#fb-bt-addlistitem,
+#controls #fb-bt-bg-image-general,
+#controls #fb-bt-bg-image, 
+#controls #fb-bt-bg-image-hover,
+#controls #fb-add-html-element
+{
+   background-image:url('../../editordata/images/icons/win_add_11.png');
+}
+#controls span#removehiddenitem, 
+#controls span#removedroplistitem,
+#controls span#removecheckitem,
+#controls span#removeradioitem,
+#controls span#removelistitem,
+#controls #fb-bt-bg-image-remove,
+#controls  #fb-bt-bg-image-remove-hover, 
+#controls #fb-bt-bg-image-remove-general
+{
+   background-image:url('../../editordata/images/icons/win_remove_11.png');
+}
+#controls span#moveitemup {
+   background-image:url('../../editordata/images/icons/win_up_11.png');
+}
+#controls span#moveitemdown {
+   background-image:url('../../editordata/images/icons/win_down_11.png');
+}
+#controls span#fb-bt-loadlist {
+   background-image:url('../../editordata/images/icons/win_list_11.png');
+}
+#controls span#fb-help-captcha, #controls span#fb-help-fieldpayment, #controls span#fb-help-fieldconditionals,
+#controls span#fb-help-html-element{
+   background-image:url('../../editordata/images/icons/win_question_16.png');
+   background-position:left top;
+   height:16px;
+   margin-top:3px;
+   width:16px;
+}
+
+#controls span#fb-help-captcha:hover {
+   background-position:left bottom;
+}
+
+/* Override for the contact list button */
+#controls span#fb-help-contactlist {
+   background-image:url('../../editordata/images/icons/win_question_16.png');
+   background-position:left top;
+   margin-top:3px;
+   height:16px;
+   width:16px;
+   float: none;
+   display: inline-block;
+}
+#controls span#fb-help-contactlist:hover {
+   background-position:left bottom;
+}
+
+/* Override for the regex button */
+#controls span#fb-help-regex {
+   background-image:url('../../editordata/images/icons/win_question_16.png');
+   background-position:left top;
+   margin-top:3px;
+   height:16px;
+   width:16px;
+   float: left;
+   display: inline-block;
+}
+#controls span#fb-help-regex:hover {
+   background-position:left bottom;
+}
+
+#controls #fb-pp-regex-opts{
+	width:145px;
+}
+
+
+/* Tools for the first tab of the panel */
+#controls .drag_tool, #controls .controls_static, #drag_tool_temp {
+   border:1px solid rgb(255,255,255);
+   cursor:pointer;
+   float:left;
+   padding:0;
+   margin:0 8px 8px 0;
+   text-align:left;
+   width:130px;
+}
+
+#controls .drag_tool span, #controls .controls_static span, #drag_tool_temp span {
+   background-position:top left;
+   background-repeat:no-repeat;
+   color:rgb(153,153,153);
+   cursor:pointer;
+   display:block;
+   font-family:"Segoe UI",tahoma,helvetica,sans-serif;
+   font-size:13px;
+   height:22px;
+   margin:3px;
+   padding:4px 0 0 32px;
+   text-align:left;
+   vertical-align:middle;
+   white-space:nowrap;
+}
+#controls .drag_tool:hover span, #controls .controls_static:hover span{
+   background-position:bottom left;
+   color:rgb(43,172,204);
+}
+
+/*********************************************************************/
+/* Individual Element Buttons */
+#tool_heading span      { background-image:url('../../editordata/images/icons/win_heading_26.png');  }
+#tool_text span         { background-image:url('../../editordata/images/icons/win_text_26.png'); }
+#tool_textfield span    { background-image:url('../../editordata/images/icons/win_textfield_26.png'); }
+#tool_textarea span     { background-image:url('../../editordata/images/icons/win_textarea_26.png'); }
+#tool_number span       { background-image:url('../../editordata/images/icons/win_number_26.png'); }
+#tool_password span     { background-image:url('../../editordata/images/icons/win_password_26.png'); }
+#tool_dropdown span     { background-image:url('../../editordata/images/icons/win_dropdown_26.png'); }
+#tool_radio span        { background-image:url('../../editordata/images/icons/win_radio_26.png'); }
+#tool_checkbox span     { background-image:url('../../editordata/images/icons/win_checkbox_26.png'); }
+#tool_upload span       { background-image:url('../../editordata/images/icons/win_upload_26.png'); }
+#tool_email span        { background-image:url('../../editordata/images/icons/win_email_26.png'); }
+#tool_url span          { background-image:url('../../editordata/images/icons/win_url_26.png'); }
+#tool_date span         { background-image:url('../../editordata/images/icons/win_date_26.png'); }
+#tool_listbox span      { background-image:url('../../editordata/images/icons/win_listbox_26.png'); }
+#tool_sectionbreak span { background-image:url('../../editordata/images/icons/win_sectionbreak_26.png'); }
+#tool_spacer span { background-image:url('../../editordata/images/icons/win_spacer_26.png'); }
+#tool_image span 		{ background-image:url('../../editordata/images/icons/win_image_26.png'); }
+#tool_phone span 		{ background-image:url('../../editordata/images/icons/win_phone_26.png'); }
+#tool_header span 		{ background-image:url('../../editordata/images/icons/win_header_26.png'); }
+#tool_footer span 		{ background-image:url('../../editordata/images/icons/win_footer_26.png'); }
+#tool_captcha span 		{ background-image:url('../../editordata/images/icons/win_captcha_26.png'); }
+#tool_submit span 		{ background-image:url('../../editordata/images/icons/win_submit_26.png'); }
+#tool_logo span 		{ background-image:url('../../editordata/images/icons/win_logo_26.png'); }
+#tool_regex span 		{ background-image:url('../../editordata/images/icons/win_regex_26.png'); }
+#tool_html span { background-image:url('../../editordata/images/icons/win_html_26.png'); }
+
+
+#controls .drag_tool > img, #controls .controls_static > img, #drag_tool_temp > img {
+   margin:2px 4px;
+   vertical-align:middle;
+}
+#controls .drag_tool > span, #controls .controls_static > span, #drag_tool_temp > span {
+   vertical-align:middle;
+   text-align:left;
+}
+#controls .drag_tool:active, #controls .controls_static:active{
+   /* none of the styles from the Mac UI could be used here */
+}
+
+/*********************************************************************/
+/* Global Action Tools */
+#controls .action_tool {
+   background-color:transparent;
+   background-position:top left;
+   color:rgb(153,153,153);
+   float:left;
+   height:22px;
+   margin:0 5px 8px 0;
+   padding:4px 0 0 29px;
+   text-align:center;
+   vertical-align:middle;
+}
+#controls #tool_item_duplicate {
+   margin-left:6px;
+   background-image:url('../../editordata/images/icons/win_duplicate_26.png');
+   background-repeat:no-repeat;
+}
+#controls #tool_item_delete {
+   background-image:url('../../editordata/images/icons/win_delete_26.png');
+   background-repeat:no-repeat;
+}
+#controls .action_tool:hover {
+   background-position:bottom left;
+}
+#controls #tool_item_duplicate:hover, #controls #fb-bt-bg-image-general:hover,
+#controls #fb-bt-bg-image:hover, #controls #fb-bt-bg-image-hover:hover {
+   color:rgb(43,172,204);
+}
+#controls #tool_item_delete:hover, #controls #fb-bt-bg-image-remove-general:hover,
+#controls #fb-bt-bg-image-remove:hover,#controls  #fb-bt-bg-image-remove-hover:hover{
+   color:rgb(161,42,10);
+}
+
+/* General styles for Properties panel */
+
+#controls label.label_input,
+#controls label.label_combo,
+#controls label.label_contextual_stepper,
+#controls label.label_contextual_stepper_number,
+#controls label.label_checkbox,
+#controls label.label_radio,
+#controls label.label_color,
+#controls label.label_multiline,
+#controls label.label_input_right,
+#controls label.label_multi {
+   clear:both !important;
+   display:block;
+   margin:0 0 12px;
+   min-height:20px;
+}
+
+#controls label.label_color { margin-right: 8px; display:block; float: left; }
+
+#controls label.label_input_grouped {
+   display:inline;
+   margin:0 0 12px;
+   min-height:20px;
+}
+
+#controls .label_checkgroup + label {
+  clear:none !important;
+  display:block !important;
+  padding:5px 0px 0px !important;
+  margin:0px !important;
+}
+
+#controls label.label_checkbox {
+   margin-left:108px;
+   margin-bottom:2px;
+}
+
+#controls label.label_checkbox_bold, #controls label.label_checkbox_italic {
+   margin: 0 2px 0 2px;
+   display:block;
+   float:left;
+}
+
+#controls label.label_input_right {
+   display: block;
+   padding-left:108px;
+   margin-bottom:12px;
+}
+
+#controls label > span {
+   font-size:13px;
+}
+#controls span.primary_left, #controls span.contextual_left,
+#controls .label_checkgroup {
+   display: block;
+   float: left;
+   text-align: right;
+   width: 100px;
+   margin:0 8px 8px 0;
+   padding-top:3px;
+}
+#controls .primary_middle {
+   display:block;
+   float:left;
+   width:20px;
+   padding: 0px 0px 0px 9px;
+   }
+
+#controls input.input_right, #controls select.combo_right {
+   float:left;
+   font-size:13px;
+   vertical-align:bottom;
+   padding: 1px;
+}
+#controls input.input_right, #controls textarea.textarea_right,
+#controls select.select_multiselect, #controls .manager_wrapper {
+   width:160px;
+   border-top:1px solid rgb(132,132,132);
+   border-right:1px solid rgb(193,193,193);
+   border-bottom:1px solid rgb(225,225,225);
+   border-left:1px solid rgb(193,193,193);
+}
+
+#controls #fb-pp-input-form-percentage.input_right{
+	width:140px;
+}
+
+#controls select.combo_right {
+   font-size:13px;
+   width:165px;
+   margin-right:2px;
+}
+
+/* Override for reCaptcha combobox */
+#controls #fb-pp-input-captcha {
+   width:140px;
+   margin-right:5px;
+}
+
+
+#controls #fb-pp-input-publickey-text, #controls #fb-pp-input-privatekey-text {
+	width: 164px;
+}
+
+
+/* Override for reCaptcha combobox */
+#controls #fb-recaptcha-theme {
+   margin-bottom:10px;
+}
+
+#controls textarea.textarea_right {
+   height:5em;
+   resize: none;
+   padding:2px;
+   font-size:13px;
+}
+#controls label.label_contextual_stepper input {
+   width:24px;
+   font-size:13px;
+}
+#controls label.label_contextual_stepper_number input {
+   width:75px;
+   font-size:13px;
+}
+
+#controls .date_min_left, #controls .date_max_left {
+   float:left;
+   width:60px;
+   font-size:11px;
+}
+#controls label.has_object_controls {
+   margin-bottom:4px !important;
+}
+#controls .object_controls {
+   height:20px;
+   margin:0 0 8px 108px;
+}
+
+#controls .object_controls.images_set {
+   margin-right:8px;
+   height:20px; 
+}
+
+#controls .element_property_actions {
+   margin-left:108px;  
+   zoom:1;
+   *display:inline;
+}
+#controls .element_property_actions hr.tool_group_divider {
+   width:172px;
+}
+
+#controls .label_grouped_main, #controls .label_grouped {
+	display: inline-block;
+	float: left;
+	margin-bottom:5px;
+	height:25px;
+}
+
+#controls .textarea_label_wrapper {
+   height:8em;
+}
+
+#controls #fb_conditional_advance_textarea{
+	height:85px;
+}
+
+/* Special cases */
+#controls #fb-pp-input-minlength, #controls #fb-pp-input-maxlength,
+#controls #fb-pp-input-height, #controls #fb-pp-input-width,
+#controls #fb-pp-input-submit-fontsize, #controls #fb-pp-input-submit-padding,
+#controls #fb-pp-input-form-fontsize, #controls #fb-pp-input-submit-bordersize,
+#controls #fb-pp-input-cols, #controls #fb-pp-input-rows,
+#controls #fb-pp-input-textarea-width, #controls #fb-pp-input-textarea-height
+{ width:50px; text-align:right; }
+
+#controls #fb-pp-input-max, #controls #fb-pp-input-min, #controls #fb-pp-input-decimals 
+{ width:75px; text-align:right; }
+
+#controls #fb-pp-input-margin-top,
+#controls #fb-pp-input-margin-right,
+#controls #fb-pp-input-margin-bottom,
+#controls #fb-pp-input-margin-left,
+#controls #fb-pp-input-item-padding-top,
+#controls #fb-pp-input-item-padding-right,
+#controls #fb-pp-input-item-padding-bottom,
+#controls #fb-pp-input-item-padding-left,
+#controls #fb-pp-input-bg-horizontal-position-pixels, 
+#controls #fb-pp-input-bg-vertical-position-pixels,
+#controls #fb-pp-input-bg-vertical-position-pixels,
+#controls #fb-pp-input-form-bordersize,
+#controls #fb-pp-input-form-fontsize,
+#controls #fb-pp-input-fontsize,
+#controls #fb-pp-input-submit-fontsize,
+#controls #fb-pp-submit-padding-top,
+#controls #fb-pp-submit-padding-bottom,
+#controls #fb-pp-submit-padding-left,
+#controls #fb-pp-submit-padding-right
+{ width:33px; text-align:right; margin-right:5px }
+
+#controls #fb-pp-span-margin-top,
+#controls #fb-pp-span-margin-right,
+#controls #fb-pp-span-margin-bottom,
+#controls #fb-pp-span-margin-left, 
+#controls #fb-pp-span-item-padding-top,
+#controls #fb-pp-span-item-padding-right,
+#controls #fb-pp-span-item-padding-bottom,
+#controls #fb-pp-span-item-padding-left {
+	display:inline-block;
+	width:39px;
+	text-align:left;
+	font-size:10px;
+	margin-bottom:12px;
+}
+
+#margin-container  {
+	margin-left:109px;
+}
+
+#controls #fb-bg-image-name-general, #controls #fb-bg-image-name,
+#controls #fb-bg-image-name-hover {
+	display:inline-block;
+	width: 133px;
+	float: left;
+	padding-top: 3px;
+	color:#777;
+}
+
+#controls .color_side {
+	margin-top: 2px;
+	margin-left: 5px;
+	display:inline-block;
+}
+
+#controls #fb-pp-input-item-width,#controls #fb-pp-input-form-item-width,
+#controls #fb-pp-input-bg-horizontal-position,#controls #fb-pp-input-bg-vertical-position,
+#controls #fb-pp-form-border-style, #controls #fb-pp-input-font,
+#controls #fb-pp-input-header-font, #controls #fb-pp-input-font-submit
+{ width:70px; text-align:right; margin-right:5px;}
+
+#controls #fb_conditional_type { width:148px; margin-right:2px; }
+#controls #fb_conditional_advance_operator { width:140px; }
+#controls #fb_conditional_advance_condition { width:102px; font-size:12px; height:20px; }
+
+#controls #fb_html_content_ops{ width:230px; margin-right:5px; margin-left:8px; }
+
+#controls label.conditional_label{ margin-bottom:10px; }
+
+#controls #fb-pp-input-verify-text { width: 126px; }
+
+#controls #fb-object-list-manager { height:8em; }
+
+#controls #fb-submit-reset-button { margin-left:34px; }
+
+#controls #fb-submit-standard-button, #controls #fb-reset-header-styles, 
+#controls #fb-reset-form-styles, #controls #fb-reset-item-styles,
+#controls #fb-reset-footer-styles { 
+   background:transparent url('../../editordata/images/icons/win_default_26.png') top left no-repeat;
+   border-width:0;
+   border-color:#ffffff;
+
+   outline:none !important;
+}
+#controls #fb-submit-standard-button:hover, #controls #fb-reset-header-styles:hover, 
+#controls #fb-reset-form-styles:hover, #controls #fb-reset-item-styles:hover,
+#controls #fb-reset-footer-styles:hover {
+   background-position:bottom left;
+   color:rgb(43,172,204);
+}
+#controls #fb-submit-standard-button {
+   width: 70px;
+   zoom:1;
+   *display:inline;
+}
+#controls #fb-bt-delete {
+   display:block;
+   border:0;
+   background:transparent url('../../editordata/images/icons/win_delete_26.png') top left no-repeat;
+}
+#controls #fb-bt-delete:hover {
+   background-position:bottom left;
+   color:rgb(161,42,10);
+}
+
+#controls #fb_conditional_advance_apply{
+   background:url('../../editordata/images/icons/win_checkbox_26.png') top left no-repeat;
+}
+
+#controls #fb_conditional_advance_apply.activated{
+   background-position:bottom left;
+}
+
+#controls #fb_conditional_advance_apply:hover {
+   background-position:bottom left;
+   color:rgb(43,172,204);
+}
+
+/* style to show column background when dragging */
+#controls .column.current {
+   margin: 0px;
+   width: 100%;
+   float: left;
+   overflow: hidden;
+   min-height: 60px;
+}
+
+/*TO_DO:Manage new background image*/
+.img_background {
+	background: url(../../editordata/images/welcome-placeholder.png) no-repeat 50% 0;
+	padding-bottom: 5px;
+	min-height:175px;
+	content:attr(data-content);
+	font-family:helvetica;
+	font-size:14px;
+	font-weight:bold;
+	color:#666;
+	text-align:center;
+}
+
+/*TO_DO:Manage new background image*/
+
+/*TO_DO:Manage new placeholders*/
+.ui-placeholder{
+   background: transparent url(../images/drop_here.png) no-repeat 50% 55px;
+   width: auto;
+   height:130px;
+}
+.ui-placeholder-bis{
+   background: transparent url(../images/drop_here.png) no-repeat center;
+   width: auto;
+   margin:5px;
+   padding: 5px;
+   height:70px;
+   display:inline-block;
+   zoom:1;
+   *display:inline;
+}
+
+.fb-spacer-placeholder{
+   background: transparent url(../images/space_here.png) no-repeat center center;
+   min-height:22px;
+   width: auto;
+   height: 100%;
+}
+
+.fb-html-placeholder{
+   background: transparent url(../images/html_here.png) no-repeat 50% 50%;
+   width: auto;
+   height: 100%;
+   min-height:15px;   
+}
+
+/* Placeholders width depending of the class set up */
+.fb-100-item-column .ui-placeholder-bis { width:94%; }
+.fb-75-item-column .ui-placeholder-bis { width:73%; }
+.fb-66-item-column .ui-placeholder-bis { width:64%; }
+.fb-50-item-column .ui-placeholder-bis { width:48%; }
+.fb-33-item-column .ui-placeholder-bis { width:31%; }
+.fb-25-item-column .ui-placeholder-bis { width:23%; }
+.fb-20-item-column .ui-placeholder-bis { width:18%; }
+
+/*TO_DO:Gestionar la nueva imagen de fondo*/
+
+/* Column properties */
+#docContainer .column {
+   min-height: 150px;
+}
+
+/* Colorpicker */
+#controls .color_right {
+   display:block;
+   float:left;
+   border:1px solid rgb(146,150,155);
+}
+
+#controls .color_right div {
+   margin:4px;
+   height:10px;
+   width:30px;
+   border:1px solid rgb(138,138,138);
+}
+
+/*TO_DO:MANAGERS COMMON*/
+
+#controls .selected_row {
+	background-color:#3875D7;
+}
+
+/*TO_DO:MANAGERS COMMON.end*/
+
+
+
+/*TO_DO:MANAGE HIDDEN FIELDS*/
+
+#controls .hidden_input_attr_name, #controls .hidden_input_attr_value {
+	width:70px;
+	margin:3px;
+}
+/*TO_DO:MANAGE HIDDEN FIELDS. End*/
+
+/*TO_DO:MANAGE DROP-DOWNS AND LISTBOXES*/
+#controls .manager_status, #controls .manager_label {
+	float: left;
+	width: 70px;
+}
+
+#controls .manager_descriptors {
+	float: left;
+   background:transparent url('../../editordata/images/manager_descriptor_bg.png') top left no-repeat;
+   border:1px solid rgb(151,151,151);
+   border-top:1px solid rgb(130,135,144);
+   border-bottom:0;
+   width:162px;
+   text-align:left;
+   vertical-align:center;
+   color:rgb(73,73,73);
+   font-size:11px;
+}
+#controls .manager_descriptors > span {
+   background:transparent url('../../editordata/images/manager_descriptor_bg.png') top right no-repeat;
+   display:block;
+   float:left;
+   padding:2px;
+   cursor:default;
+}
+#controls .manager_descriptors > span.manager_status {
+   width:20px;
+   text-align: center;
+}
+#controls .manager_descriptors > span.manager_name,
+#controls .manager_descriptors > span.manager_value  {
+   text-align:left;
+   padding-left:8px;
+   width:60px;
+}
+#controls .manager_descriptors > span.manager_label {
+   text-align:left;
+   padding-left:8px;
+   width:120px;
+}
+#controls .manager_descriptors > span.allowed_files_label_type {
+   width:150px;
+   text-align:left;
+   padding-left:3px;
+}
+#controls .manager_descriptors > span.allowed_files_label_check {
+   width:21px;
+   text-align:center;
+   padding-bottom:4px;
+   padding-top:3px;
+}
+
+#controls .manager_wrapper {
+	background-color:rgb(255,255,255);
+ 	border-color:rgb(130,135,144);
+   overflow-y:scroll;
+ 	z-index:5;
+ 	height:95px;
+	width:162px;
+ 	margin-left:108px;
+	margin-bottom:5px;
+	margin-top:-6px;
+
+}
+#controls .manager_wrapper div {
+   border:1px solid rgb(255,255,255);
+   padding:0;
+   cursor:pointer;
+}
+#controls .manager_wrapper div * {
+   border:none;
+}
+
+#controls #allowed_files_wrapper_div_id .allowed_row {
+	padding:2px 0;
+}
+#controls .manager_wrapper input[type=checkbox] {
+   margin-left:3px;
+}
+#controls .manager_wrapper .allowed_check {
+   width:20px;
+}
+#controls .allowed_input_attr_type {
+	width:120px;
+}
+#controls .manager_wrapper input[type=text] {
+   background-color:transparent;
+   border-size:1px;
+   border-color:transparent; /* border:none isn't enough for IE7 */
+   font-size:11px;
+   margin-left:1px;
+   padding:1px 2px 2px;
+   cursor:pointer;
+}
+
+#controls .manager_wrapper .selected_row {
+   background:transparent url('../../editordata/images/win_row_bg.png') left bottom repeat-x;
+   border:1px solid rgb(153,222,253);
+   border-width:1px 0;
+}
+#controls .manager_wrapper .selected_row input[type=text] {
+   background-color:transparent;
+}
+#controls .manager_wrapper .selected_row input[type=text].focus {
+   background-color:rgb(255,255,255);
+   background-image:none;
+   border:1px solid #777;
+   color:rgb(0,0,0);
+   cursor:text;
+}
+#controls .manager_wrapper .hidden_row input[type=text] {
+   width:60px;
+}
+#controls .droplist_attr_selected, #controls .checkbox_attr_checked,
+#controls .radio_attr_selected {
+	margin-top:-2px;
+	margin-right: 5px;
+}
+#controls .droplist_attr_label, #controls .checkbox_attr_label,
+#controls .radio_attr_label {
+	width:100px;
+	margin:3px;
+}
+
+#controls .droplist_row, #controls .checkbox_row,
+#controls .radio_row, #controls .hidden_row,#controls .allowed_row {
+	display:block;
+}
+
+#controls #fb-label-html-element {
+width: 267px;
+float: left;
+margin-left: 5px;
+}
+#controls #fb-html-content-textarea {
+width: 257px;
+height:250px;
+float: right;
+margin: 3px;
+margin-right: 10px;
+}
+/*TO_DO:MANAGE UPLOAD FILES. End*/
+
+
+
+/* Datepicker */
+#ui-datepicker-div {
+   width:140px;
+   height:148px;
+   border:1px solid rgb(40,40,40);
+}
+#ui-datepicker-div * {
+   margin:0;
+   padding:0;
+   font-size:10px;
+}
+#ui-datepicker-div .ui-datepicker-header {
+   background:none;
+   border:none;
+}
+
+#ui-datepicker-div .ui-datepicker-prev,
+#ui-datepicker-div .ui-datepicker-prev:hover,
+#ui-datepicker-div .ui-datepicker-next,
+#ui-datepicker-div .ui-datepicker-next:hover {
+   float:left;
+   position:relative;
+   top:0;
+   left:0;
+   right:0;
+   display:block;
+   border:0;
+   background:transparent;
+}
+#ui-datepicker-div .ui-datepicker-prev .ui-icon-circle-triangle-w,
+#ui-datepicker-div .ui-datepicker-next .ui-icon-circle-triangle-e {
+   position:relative;
+   top:0;
+   left:0;
+}
+#ui-datepicker-div .ui-datepicker-next .ui-icon-circle-triangle-e {
+   margin-left:12px;
+}
+#ui-datepicker-div .ui-datepicker-prev .ui-icon-circle-triangle-w {
+   background:transparent url(../images/icons/bullet_grey_arrow_left_12.png) 0 0 no-repeat;
+}
+#ui-datepicker-div .ui-datepicker-next .ui-icon-circle-triangle-e {
+   background:transparent url(../images/icons/bullet_grey_arrow_right_12.png) 0 0 no-repeat;
+}
+#ui-datepicker-div .ui-datepicker-title {
+   float:right;
+   line-height:1em;
+   cursor:default !important;
+   padding-top:1px;
+}
+#ui-datepicker-div td a.ui-state-default {
+   background:none;
+   border:none;
+}
+#ui-datepicker-div .ui-datepicker-calendar thead tr {
+   border-bottom:4px solid rgb(255,255,255) !important;
+}
+#ui-datepicker-div .ui-datepicker-calendar tbody tr {
+   border-bottom:2px solid rgb(255,255,255) !important;
+}
+#ui-datepicker-div .ui-datepicker-calendar td {
+   background-color:rgb(235,235,235);
+   border:none;
+   text-align:center;
+   padding-top:2px;
+   padding-bottom:2px;
+   opacity:1 !important;
+}
+#ui-datepicker-div .ui-datepicker-calendar td a {
+   text-align:center;
+   color:rgb(0,0,0);
+}
+#ui-datepicker-div .ui-datepicker-calendar td:not(.ui-state-disabled):hover {
+   background-color:rgb(205,205,205);
+}
+#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-current-day,
+#ui-datepicker-div .ui-datepicker-calendar td.ui-state-active {
+   background-color:rgb(159,159,159);
+}
+#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-current-day a {
+   color:rgb(255,255,255) !important;
+}
+#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-today {
+   background-color:rgb(112,181,236);
+}
+#ui-datepicker-div .ui-datepicker-calendar td:nth-child(1) {
+   border-top-left-radius:20px;
+   border-bottom-left-radius:20px;
+}
+#ui-datepicker-div .ui-datepicker-calendar td:nth-child(7) {
+   border-top-right-radius:20px;
+   border-bottom-right-radius:20px;
+}
+
+#ui-datepicker-div .ui-datepicker-buttonpane {
+   border:0 !important;
+   height:0 !important;
+}
+
+#ui-datepicker-div button.ui-datepicker-current {
+   position:absolute;
+   top:3px;
+   left:18px;
+   border:0;
+   width:12px;
+   height:12px;
+   background:transparent url(../images/icons/bullet_grey_dot_diamond_12.png) 0 0 no-repeat;
+   text-indent:-9999px;
+}
+#ui-datepicker-div button.ui-datepicker-close {
+   display:none !important;
+}
+
+.disabled_display{color : rgb(138,128,128);}
+
+#docContainer .selected-object {
+   background-color: rgb(235,235,235);
+}
+
+#docContainer #fb-submit-button-div.selected-object, #docContainer #fb-form-header1.selected-object {
+   border: 1px dashed  rgb(138,128,128) !important;
+}
+
+/*TO_DO:MANAGE PAYMENTS SPECIAL FIELDS/*/
+
+#controls #fb-pp-input-payments {
+   width:148px;
+   margin-right:2px;
+}
+
+#controls #payment_combo_container{
+    margin-bottom:2px;
+}
+#controls #label_input_invoice{
+	padding-left:0px;
+	margin-bottom:3px;
+}
+
+#controls #fb-pp-input-use-invoice-label{
+	margin-bottom:0px;
+}
+
+#controls #fb-pp-input-invoice-label{
+	margin-left:25px;
+	width:136px;
+}
+
+#controls #fb-pp-input-price{
+	margin-left:3px;
+	width:124px;
+	text-align:right;	
+}
+
+#controls span#fb-help-fieldpayment, #controls span#fb-help-fieldconditionals, 
+#controls span#fb-help-html-element, #controls span#fb-add-html-element {
+	  display:block;
+}
+#controls span#fb-help-fieldpayment:hover, #controls span#fb-help-fieldconditionals:hover,
+#controls span#fb-help-html-element:hover{
+   background-position:left bottom;
+}
+
+/*TO_DO:MANAGE PAYMENTS SPECIAL FIELDS. End*/
+
+/*AVOID OUTLINE IN CONTROL PANEL TABS*/
+#controls a:active,#controls  a:focus { 
+ outline: none; 
+ ie-dummy: expression(this.hideFocus=true);
+}
+/*AVOID OUTLINE IN CONTROL PANEL TABS. End*/

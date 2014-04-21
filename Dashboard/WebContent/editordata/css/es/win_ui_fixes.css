@@ -1,0 +1,40 @@
+#controls {
+   width:355px;
+}
+
+#controls #controlset { clear:left; padding:7px 0 0 10px; height:100%; overflow:scroll; }
+
+#controls #controlset div.controlpane fieldset {
+   width:320px;
+}
+
+#controls #control_toolbar a {
+   width:115px;
+}
+
+#controls .drag_tool, #controls .controls_static, #drag_tool_temp {
+   margin:0 2px 6px 0;
+   width:154px;
+}
+ 
+#controls #fb-pp-span-margin-top,
+#controls #fb-pp-span-item-padding-top {
+	margin-left:0px;
+}
+
+#controls  #fb-pp-input-item-padding-left,#controls #fb-pp-submit-padding-left{
+margin-right:15px;
+}
+
+#controls #captcha_theme_label{
+	margin-right:17px;
+}
+
+#controls span.primary_left, #controls span.contextual_left,
+#controls .label_checkgroup {
+   font-size:13px;
+}
+
+#controls #fb-submit-standard-button {
+   width: 100px;
+}

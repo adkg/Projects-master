@@ -1,0 +1,1004 @@
+#controls * { margin:0; padding:0; font-family:"lucida grande",helvetica,sans-serif;  }
+body { overflow:hidden; -webkit-user-select:none; }
+body input:disabled{ -webkit-user-select:none;}
+
+/* Main layout for content */
+.ui-layout-east {
+   background-color: #fefefe;
+   width:345px;
+   display: block;
+   z-index: 3;
+   position:absolute;
+   right:0;
+   height:100%;
+   overflow:visible;
+}
+
+.ui-layout-center {
+   height:100%;
+   display: block;
+   z-index: 2;
+   float:left;
+   overflow: auto;
+}
+
+#layout-center {
+   width:896px;
+   background-color:rgb(230,230,230);
+   overflow:scroll;
+   position:absolute;
+   left:0;
+   top:0;
+   height:100%;
+}
+
+/* Tab panel in the right */
+#controls {
+   position:absolute;
+   right:0;
+   width:332px;
+   background-color:rgb(237,237,237);
+   overflow:hidden;
+   top:0;
+   height:100%;
+}
+
+#controls #properties_placeholder {
+   height:300px;
+   text-align:center;
+   padding-top:40%;
+   color:rgba(0,0,0,.7);
+   text-shadow:0px 0px 1px rgba(255,255,255,.7);
+   width: 80%;
+   margin: 0 auto;
+}
+
+#controls #controlset { clear:left; padding:7px 0 0 20px; height:100%; overflow:scroll; }
+#controls #controlset .controlpane { border:0; display:none; }
+#controls #controlset .current { display: block !important; }
+#controls #controlset div.controlpane fieldset {
+   border:0;
+   clear:left;
+   font-size:13px;
+   font-weight:normal;
+   margin-bottom:8px;
+   padding:8px 0 10px;
+   width:285px;
+}
+
+#controls #controlset div.controlpane fieldset.tool_group_special {
+   margin-bottom:0px;
+   padding-bottom:0px; 
+}
+
+#controls #controlset div.controlpane fieldset legend {
+   padding-right:10px;
+   color:rgb(0,0,0);
+   font-weight: bold;
+   padding-top:5px;
+}
+
+
+#controls #controlset #tb_control_properties fieldset legend,  
+#controls #controlset #tb_form_properties fieldset legend {
+   padding-bottom:7px;
+}
+
+
+#controls .tool_group_divider { margin-bottom:10px; width:280px; border:0; border-bottom:1px solid rgb(137,137,137); height:0;}
+
+
+#controls .tabsform {
+   font-family:Helvetica;
+    position: relative;
+   z-index: 0;
+   display: block;
+   height:inherit;
+}
+#controls .tabsform > section {
+    float: left;
+    z-index: 1;
+   height:inherit;
+}
+#controls .tabsform > section > div {
+   position: absolute;
+   left: 0;
+   width: 90%;
+   display: none;
+   padding: 0 10px;
+   font: 12px Arial;
+   overflow: auto;
+   min-height: 200px;
+   margin:0;
+}
+#controls #control_toolbar {
+   height:21px;
+}
+#controls #control_toolbar a {
+   display:block;
+   float:left;
+   border:1px solid rgb(168,168,168);
+   border-width:0 1px 1px 0;
+   margin:0;
+   padding:2px 0;
+   width:110px;
+   text-align:center;
+   font-family:"lucida grande",helvetica,sans-serif;
+   font-size:13px;
+   z-index: 999999;
+   cursor: pointer;
+   color:rgb(0,0,0);
+   text-shadow:0px 0px 1px rgb(223,223,223);
+   text-decoration:none;
+   background: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0, rgb(236,236,236)),
+       color-stop(0.49, rgb(233,233,233)),
+       color-stop(0.5, rgb(251,251,251)),
+       color-stop(1, rgb(249,249,249))
+   );
+}
+#controls #control_toolbar a:last-child {  border-width:0 0 1px 0; }
+
+#controls #control_toolbar a.current {
+   background: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0, rgb(197,197,197)),
+       color-stop(0.49, rgb(195,195,195)),
+       color-stop(0.5, rgb(211,211,211)),
+       color-stop(1, rgb(208,208,208))
+   );
+}
+
+#controls span.object_control_button {
+   cursor:pointer;
+   display:block;
+   float:left;
+   border:1px solid rgba(151,151,151,1);
+   border-top:1px solid rgba(127,127,127,1);
+   border-left:0;
+   width:20px;
+   height:18px;
+   text-align:center;
+   vertical-align:center;
+   color:rgba(73,73,73,1);
+   font-weight:bolder;
+   background: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0, rgb(236,236,236)),
+       color-stop(0.49, rgb(233,233,233)),
+       color-stop(0.5, rgb(251,251,251)),
+       color-stop(1, rgb(249,249,249))
+   );
+   -webkit-box-shadow: outer 0 -1px 1px rgba(217,217,217,1);
+}
+#controls span.object_control_button:active {
+   background: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0, rgb(170,170,170)),
+       color-stop(0.49, rgb(170,170,170)),
+       color-stop(0.5, rgb(175,175,175)),
+       color-stop(1, rgb(175,175,175))
+   );
+   -webkit-box-shadow: outer 0 -1px 1px rgba(217,217,217,1);
+}
+
+
+#controls span.object_control_button:first-child {
+   border-left:1px solid rgba(151,151,151,1);
+}
+
+
+/* Override for the reCaptcha help button */
+#controls #fb-help-captcha {
+   height:16px;
+   width:16px;
+}
+
+/* Override for the contact list button */
+#controls #fb-help-contactlist {
+   height:16px;
+   width:16px;
+   float: none;
+   display: inline-block;
+   border-left: 1px solid rgba(151, 151, 151, 1);
+}
+
+/* Override for reCaptcha combobox */
+#controls #fb-recaptcha-theme {
+   margin-bottom:10px;
+}
+
+#controls #fb-pp-input-publickey-text, #controls #fb-pp-input-privatekey-text {
+	width: 173px;
+}
+
+
+/* Tools for the first tab of the panel */
+#controls .drag_tool, #controls .controls_static, #drag_tool_temp {
+   background: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgb(254,254,254)),color-stop(1, rgb(184,184,184)));;
+   border:solid 1px #6a6a6a;
+   border-radius:3px; -webkit-border-radius:3px;
+   float:left;
+   padding:0;
+   margin:0 8px 8px 0;
+   text-align:left;
+   width:130px;
+}
+#controls .drag_tool span, #controls .controls_static span, #drag_tool_temp span {
+   background-position:2px 0px;
+   background-repeat:no-repeat;
+   color:rgb(0,0,0);
+   display:block;
+   font-family:"lucida grande",helvetica,sans-serif;
+   font-size:13px;
+   margin:2px 3px 2px 3px;
+   padding:0 0 0 24px;
+   text-shadow:1px 1px 1px rgb(223,223,223);
+   text-align:left;
+   vertical-align:middle;
+   white-space:nowrap;
+}
+
+#controls .drag_tool span, #controls .controls_static span{
+   cursor:pointer;
+}
+
+/*********************************************************************/
+/* Individual Element Buttons */
+#tool_heading span      { background-image:url('../../editordata/images/icons/mac_heading.png');  }
+#tool_text span         { background-image:url('../../editordata/images/icons/mac_text.png'); }
+#tool_textfield span    { background-image:url('../../editordata/images/icons/mac_textfield.png'); }
+#tool_textarea span     { background-image:url('../../editordata/images/icons/mac_textarea.png'); }
+#tool_number span       { background-image:url('../../editordata/images/icons/mac_number.png'); }
+#tool_password span     { background-image:url('../../editordata/images/icons/mac_password.png'); }
+#tool_dropdown span     { background-image:url('../../editordata/images/icons/mac_dropdown.png'); }
+#tool_radio span        { background-image:url('../../editordata/images/icons/mac_radio.png'); }
+#tool_checkbox span     { background-image:url('../../editordata/images/icons/mac_checkbox.png'); }
+#tool_upload span       { background-image:url('../../editordata/images/icons/mac_upload.png'); }
+#tool_email span        { background-image:url('../../editordata/images/icons/mac_email.png'); }
+#tool_url span          { background-image:url('../../editordata/images/icons/mac_url.png'); }
+#tool_date span         { background-image:url('../../editordata/images/icons/mac_date.png'); }
+#tool_listbox span      { background-image:url('../../editordata/images/icons/mac_listbox.png'); }
+#tool_sectionbreak span { background-image:url('../../editordata/images/icons/mac_sectionbreak.png'); }
+#tool_spacer span 		{ background-image:url('../../editordata/images/icons/mac_spacer.png'); }
+#tool_image span 		{ background-image:url('../../editordata/images/icons/mac_image.png'); }
+#tool_phone span 		{ background-image:url('../../editordata/images/icons/mac_phone.png'); }
+#tool_header span 		{ background-image:url('../../editordata/images/icons/mac_header.png'); }
+#tool_logo span 		{ background-image:url('../../editordata/images/icons/mac_logo.png'); }
+#tool_footer span 		{ background-image:url('../../editordata/images/icons/mac_footer.png'); }
+#tool_submit span 		{ background-image:url('../../editordata/images/icons/mac_submit.png'); }
+#tool_captcha span 		{ background-image:url('../../editordata/images/icons/mac_captcha.png'); }
+#tool_regex span 		{ background-image:url('../../editordata/images/icons/mac_regex.png'); }
+#tool_html span 		{ background-image:url('../../editordata/images/icons/mac_html.png'); }
+
+
+/* Leaving the code here, but commenting because native OS X buttons don't
+   have a hover state.
+#controls .drag_tool:hover {
+   background: -webkit-gradient(
+      linear,
+          left top,
+          left bottom,
+          color-stop(0, rgb(254,254,254)),
+          color-stop(1, rgb(200,200,200))
+   );
+}
+*/
+#controls .drag_tool > img, #controls .controls_static > img,#drag_tool_temp > img {
+   margin:2px 4px;
+   vertical-align:middle;
+}
+#controls .drag_tool > span, #controls .controls_static > span,#drag_tool_temp > span {
+   vertical-align:middle;
+   text-align:left;
+}
+#controls .drag_tool:active, #controls .controls_static:active{
+   background: -webkit-gradient(
+      linear,
+          left top,
+          left bottom,
+          color-stop(0, rgb(179,179,179)),
+          color-stop(1, rgb(150,150,150))
+   );
+   -webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.8), inset 0 1px 0 rgba(0,0,0,0.3);
+   text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#controls .action_tool {
+   font-size:12px;
+   float:left;
+   margin:0 8px 8px 0;
+   padding:1px 12px;
+   text-align:center;
+   background: -webkit-gradient(
+      linear,
+          left top,
+          left bottom,
+          color-stop(0, rgb(245,245,245)),
+          color-stop(1, rgb(222,222,222))
+   );
+   border:solid 1px rgb(167,167,167);
+   -webkit-border-radius:20px;
+   color:rgb(0,0,0);
+   text-shadow:1px 1px 1px rgba(223,223,223,.6);
+   vertical-align:middle;
+}
+#controls .action_tool:active {
+    background: -webkit-gradient(
+       linear,
+           left top,
+           left bottom,
+           color-stop(0, rgb(167,167,167)),
+           color-stop(1, rgb(210,210,210))
+    );
+   -webkit-box-shadow: inset 0 1px .5px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* General styles for Properties panel */
+
+#controls label.label_input, #controls label.label_combo, #controls label.label_contextual_stepper,#controls label.label_contextual_stepper_number,
+#controls label.label_checkbox, #controls label.label_radio, #controls label.label_color,
+#controls label.label_multiline, #controls label.label_input_right #controls label.label_multi {
+   clear:both;
+   display:block;
+   margin:0 0 12px;
+   min-height:20px;
+}
+#controls label.label_color { margin: 0px 2px 8px 0px; display:inline-block; float: left; }
+
+#controls label.label_input_grouped {
+   display:inline;
+   margin:0 0 12px;
+   min-height:20px;
+}
+
+#controls .label_checkgroup + label {
+  display:inline-block !important;
+  padding:5px 0px 0px !important;
+  margin:0px !important;
+}
+
+#controls label.label_checkbox, #controls label.label_checkbox_bold {
+   margin-left:108px;
+   margin-bottom:2px;
+}
+
+#controls label.label_checkbox_bold, #controls label.label_checkbox_italic {
+   display:block;
+   margin: 3px 2px 0 5px;
+   float:left;
+}
+
+#controls label.label_input_right {
+   display: block;
+   padding-left:108px;
+   margin-bottom:12px;
+}
+
+#controls label > span {
+   font-size:13px;
+}
+#controls span.primary_left, #controls span.contextual_left,
+#controls .label_checkgroup {
+   display: block;
+   float: left;
+   text-align: right;
+   width: 100px;
+   margin:0 8px 8px 0;
+   padding-top:3px;
+}
+#controls .primary_middle {
+   display:block;
+   float:left;
+   width:20px;
+   padding: 0px 0px 0px 9px;
+   }
+
+
+#controls input.input_right, #controls select.combo_right {
+   float:left;
+   font-size:13px;
+   vertical-align:bottom;
+   padding: 1px;
+}
+#controls input.input_right, #controls textarea.textarea_right,
+#controls select.select_multiselect, #controls .manager_wrapper {
+   width:170px;
+   border-top:1px solid rgba(132,132,132,1);
+   border-right:1px solid rgba(193,193,193,1);
+   border-bottom:1px solid rgba(225,225,225,1);
+   border-left:1px solid rgba(193,193,193,1);
+   -webkit-box-shadow: inset 0 1px .5px rgba(0,0,0,0.2);
+}
+
+#controls #fb-pp-input-form-percentage.input_right{
+	margin-right:5px;
+	width:150px;
+}
+
+#controls select.combo_right {
+   font-size:13px;
+   width:150px;
+   margin-right:2px;
+}
+
+#controls textarea.textarea_right {
+   height:5em;
+   resize: none;
+   padding:2px;
+   font-size:13px;
+}
+#controls label.label_contextual_stepper input {
+   width:24px;
+   font-size:13px;
+}
+#controls label.label_contextual_stepper_number input {
+   width:75px;
+   font-size:13px;
+}
+
+#controls .date_min_left, #controls .date_max_left {
+   float:left;
+   width:70px;
+   font-size:10px;
+}
+#controls label.has_object_controls {
+   margin-bottom:4px !important;
+}
+#controls .object_controls {
+   height:20px;
+   margin:0 0 8px 108px;
+}
+
+#controls .object_controls.images_set {
+   margin-left:5px;
+   height:20px;
+}
+
+#controls .element_property_actions {
+   margin-left:108px;
+}
+#controls .element_property_actions hr.tool_group_divider {
+   width:170px;
+}
+
+#controls .label_grouped_main, #controls .label_grouped {
+	display: inline-block;
+	float: left;
+	margin-bottom:5px;
+	height:25px;
+}
+
+#controls label.textarea_label_wrapper {
+   height: 8em;
+}
+
+#controls #fb_conditional_advance_textarea{
+	height:85px;
+}
+
+/* Special cases */
+#controls #fb-pp-input-minlength, #controls #fb-pp-input-maxlength,
+#controls #fb-pp-input-height, #controls #fb-pp-input-width,
+#controls #fb-pp-input-submit-fontsize, #controls #fb-pp-input-submit-padding,
+#controls #fb-pp-input-submit-bordersize,
+#controls #fb-pp-input-cols, #controls #fb-pp-input-rows,
+#controls #fb-pp-input-max, #controls #fb-pp-input-min,
+#controls #fb-pp-input-fontsize, #controls #fb-pp-input-textarea-width,
+#controls #fb-pp-input-textarea-height
+{ width:50px; text-align:right; }
+
+#controls #fb-pp-input-max, #controls #fb-pp-input-min, #controls #fb-pp-input-decimals
+{ width:75px; text-align:right; }
+
+#controls #fb-pp-input-margin-top,
+#controls #fb-pp-input-margin-right,
+#controls #fb-pp-input-margin-bottom,
+#controls #fb-pp-input-margin-left,
+#controls #fb-pp-input-item-padding-top,
+#controls #fb-pp-input-item-padding-right,
+#controls #fb-pp-input-item-padding-bottom,
+#controls #fb-pp-input-item-padding-left,
+#controls #fb-pp-input-bg-horizontal-position-pixels,
+#controls #fb-pp-input-bg-vertical-position-pixels,
+#controls #fb-pp-input-form-bordersize,
+#controls #fb-pp-input-form-fontsize,
+#controls #fb-pp-input-fontsize,
+#controls #fb-pp-input-submit-fontsize,
+#controls #fb-pp-input-height, 
+#controls #fb-pp-input-width,
+#controls #fb-pp-submit-padding-top,
+#controls #fb-pp-submit-padding-bottom,
+#controls #fb-pp-submit-padding-left,
+#controls #fb-pp-submit-padding-right
+{ width:35px; text-align:right; margin-right:5px }
+
+#controls #fb-pp-span-item-padding-top,
+#controls #fb-pp-span-item-padding-right,
+#controls #fb-pp-span-item-padding-bottom,
+#controls #fb-pp-span-item-padding-left,
+#controls #fb-pp-span-margin-top,
+#controls #fb-pp-span-margin-right,
+#controls #fb-pp-span-margin-bottom,
+#controls #fb-pp-span-margin-left
+{
+	display:inline-block;
+	width:40px;
+	text-align:left;
+	font-size:10px;
+	margin-bottom:12px;
+}
+
+#controls #margin-container
+{
+	margin-left:108px;
+}
+
+#controls #fb-bg-image-name-general, #controls #fb-bg-image-name,
+#controls #fb-bg-image-name-hover {
+	display:inline-block;
+	width: 133px;
+	float: left;
+	padding-top: 3px;
+	color:#777;
+}
+
+#controls .color_side {
+	margin-top: 2px;
+	margin-left: 5px;
+	display:inline-block;
+}
+
+#controls #fb-pp-input-item-width,#controls #fb-pp-input-form-item-width, 
+#controls #fb-pp-input-bg-horizontal-position,#controls #fb-pp-input-bg-vertical-position,
+#controls #fb-pp-form-border-style, #controls #fb-pp-input-font,
+#controls #fb-pp-input-header-font, #controls #fb-pp-input-font-submit,
+#controls #fb-pp-input-bg-repeat
+{ width:85px; text-align:right; margin-right:5px;}
+
+#controls #fb_conditional_advance_operator { width:125px; }
+#controls #fb_conditional_advance_condition { width:107px; }
+
+#controls #fb_html_content_ops{ width: 226px; margin-right: 2px; margin-left: 10px;}
+
+#controls label.conditional_label{ margin-bottom:0px; }
+
+#controls #fb-pp-input-verify-text { width: 128px; }
+
+#controls #fb-object-list-manager { height:8em; }
+
+#controls #fb-submit-reset-button { margin-left:34px; }
+
+#controls select.combo_font {
+   font-size:13px;
+   width:75px;
+   margin-right:2px;
+}
+
+#controls #fb-pp-input-fontsize {
+	width: 28px;
+}
+/* style to show column background when dragging */
+#controls .column.current {
+   margin: 0px;
+   width: 100%;
+   float: left;
+   overflow: hidden;
+   min-height: 60px;
+}
+
+/*TO_DO:Manage new background image*/
+.img_background {
+	background: url(../../editordata/images/welcome-placeholder.png) no-repeat 50% 0;
+	padding-bottom: 5px;
+	min-height:175px;
+}
+
+.img_background:before {
+	content:attr(data-content);
+	font-family:helvetica;
+	font-size:14px;
+	font-weight:bold;
+	color:grey;
+	position:relative;
+	top:15px;
+	left:18%;
+}
+
+/*TO_DO:Manage new background image*/
+
+/*TO_DO:Manage new placeholders*/
+.ui-placeholder{
+   background: transparent url(../images/drop_here.png) no-repeat 50% 55px;
+   width: auto;
+   height:130px;
+}
+.ui-placeholder-bis{
+   background: transparent url(../images/drop_here.png) no-repeat center;
+   width: auto;
+   margin:5px;
+   padding: 5px;
+   height:70px;
+   display:inline-block;
+}
+
+.fb-spacer-placeholder{
+   background: transparent url(../images/space_here.png) no-repeat 50% 50%;
+   width: auto;
+   height: 100%;
+}
+
+.fb-html-placeholder{
+   background: transparent url(../images/html_here.png) no-repeat 50% 50%;
+   width: auto;
+   height: 100%;
+   min-height:15px;     
+}
+
+/* Placeholders width depending of the class set up */
+.fb-100-item-column .ui-placeholder-bis { width:94%; }
+.fb-75-item-column .ui-placeholder-bis { width:73%; }
+.fb-66-item-column .ui-placeholder-bis { width:64%; }
+.fb-50-item-column .ui-placeholder-bis { width:48%; }
+.fb-33-item-column .ui-placeholder-bis { width:31%; }
+.fb-25-item-column .ui-placeholder-bis { width:23%; }
+.fb-20-item-column .ui-placeholder-bis { width:18%; }
+
+	
+/* Column properties */
+#docContainer .column {
+   min-height: 150px;
+}
+
+/* Colorpicker */
+#controls .color_right {
+   display:block;
+   float:left;
+   border:1px solid rgba(146,150,155,1);
+   background: -webkit-gradient(
+       linear,
+           left top,
+           left bottom,
+           color-stop(0, rgba(229,229,229,0.8)),
+           color-stop(1, rgba(249,249,249,0.8))
+    );
+   -webkit-box-shadow: inset 0 1px .5px rgba(255,255,255,0.8);
+
+}
+
+#controls .color_right div {
+   margin:4px;
+   height:10px;
+   width:30px;
+   border:1px solid rgb(138,138,138);
+}
+
+/*TO_DO:MANAGERS COMMON*/
+
+#controls .selected_row {
+	background-color:#3875D7;
+}
+
+/*TO_DO:MANAGERS COMMON.end*/
+
+
+
+/*TO_DO:MANAGE HIDDEN FIELDS*/
+
+#controls .hidden_input_attr_name, #controls .hidden_input_attr_value {
+	width:70px;
+	margin:3px;
+}
+/*TO_DO:MANAGE HIDDEN FIELDS. End*/
+
+/*TO_DO:MANAGE DROP-DOWNS AND LISTBOXES*/
+#controls .manager_status, #controls .manager_label {
+	float: left;
+	width: 70px;
+}
+
+#controls .manager_descriptors {
+	float: left;
+   border:1px solid rgba(151,151,151,1);
+   border-top:1px solid rgba(127,127,127,1);
+   width:170px;
+   height:17px;
+   text-align:left;
+   vertical-align:center;
+   color:rgba(73,73,73,1);
+   font-size:11px;
+   background: -webkit-gradient(
+       linear,
+       left bottom,
+       left top,
+       color-stop(0, rgb(236,236,236)),
+       color-stop(0.49, rgb(233,233,233)),
+       color-stop(0.5, rgb(251,251,251)),
+       color-stop(1, rgb(249,249,249))
+   );
+   -webkit-box-shadow: outer 0 -1px 1px rgba(217,217,217,1);
+}
+#controls .manager_descriptors > span {
+   display:block;
+   float:left;
+   padding:2px;
+   border-right:1px solid rgba(146,150,155,1);
+}
+#controls .manager_descriptors > span.manager_status {
+   width:20px;
+   text-align: center;
+}
+#controls .manager_descriptors > span.manager_name,
+#controls .manager_descriptors > span.manager_value  {
+   text-align:left;
+   padding-left:8px;
+   width:67px;
+}
+#controls .manager_descriptors > span.manager_label {
+   text-align:left;
+   padding-left:8px;
+   width:120px;
+}
+#controls .manager_descriptors > span.allowed_files_label_type {
+   width:150px;
+   text-align:left;
+   padding-left:3px;
+}
+#controls .manager_descriptors > span.allowed_files_label_check {
+   width:21px;
+   text-align:center;
+   padding-bottom:4px;
+   padding-top:3px;
+}
+
+#controls .manager_wrapper {
+	background-color:rgb(255,255,255);
+ 	overflow-y:scroll;
+ 	z-index:5;
+ 	height:95px;
+	width:170px;
+ 	margin-left:108px;
+	margin-bottom:5px;
+	margin-top:-6px;
+}
+#controls .manager_wrapper div:nth-child(2n) {
+   background-color:rgb(237,243,254);
+}
+
+#controls .manager_wrapper div {
+   cursor:pointer;
+}
+
+#controls #allowed_files_wrapper_div_id .allowed_row {
+	padding:2px 0;
+}
+#controls .manager_wrapper input[type=checkbox] {
+   margin-left:6px;
+   cursor:pointer;
+}
+#controls .manager_wrapper .allowed_check {
+   width:20px;
+}
+#controls .allowed_input_attr_type {
+	width:148px;
+}
+#controls .manager_wrapper input[type=text] {
+   margin-left:5px;
+   border:none;
+   font-size:12px;
+   cursor:pointer;
+}
+#controls .manager_wrapper div:nth-child(2n) input[type=text] {
+   background-color:rgb(237,243,254);
+}
+#controls .manager_wrapper .selected_row {
+   background-color:rgb(56,117,215) !important;
+}
+#controls .manager_wrapper .selected_row input[type=text] {
+   background-color:rgb(56,117,215) !important;
+   color:rgb(255,255,255) !important;
+}
+#controls .manager_wrapper .selected_row input[type=text]:focus {
+   background-color:rgb(255,255,255) !important;
+   color:rgb(0,0,0) !important;
+   cursor:text;
+}
+#controls .manager_wrapper .hidden_row input[type=text] {
+   width:68px;
+}
+#controls .droplist_attr_selected, #controls .checkbox_attr_checked,
+#controls .radio_attr_selected {
+	margin-left:32px;
+	margin-right: 5px;
+}
+#controls .droplist_attr_label, #controls .checkbox_attr_label,
+#controls .radio_attr_label {
+	width:124px;
+	margin:3px;
+}
+
+#controls .droplist_row, #controls .checkbox_row,
+#controls .radio_row, #controls .hidden_row,#controls .allowed_row {
+	display:block;
+}
+#controls #fb-label-html-element {
+width: 267px;
+float: left;
+margin-left: 8px;
+}
+
+#controls #fb-html-content-textarea {
+width: 267px;
+height:250px;
+float: right;
+margin: 3px 3px 5px 3px;
+}
+/*TO_DO:MANAGE UPLOAD FILES. End*/
+
+
+/* Datepicker */
+#ui-datepicker-div {
+   width:140px;
+   height:148px;
+   border:1px solid rgba(40,40,40,.6);
+   -webkit-box-shadow: 0 0 30px rgba(120,120,120,0.8);
+   -webkit-border-radius:0;
+}
+#ui-datepicker-div * {
+   margin:0;
+   padding:0;
+   font-size:10px;
+}
+#ui-datepicker-div .ui-datepicker-header {
+   background:none;
+   border:none;
+}
+
+#ui-datepicker-div .ui-datepicker-prev,
+#ui-datepicker-div .ui-datepicker-prev:hover,
+#ui-datepicker-div .ui-datepicker-next,
+#ui-datepicker-div .ui-datepicker-next:hover {
+   float:left;
+   position:relative;
+   top:0;
+   left:0;
+   right:0;
+   display:block;
+   border:0;
+   background:transparent;
+}
+#ui-datepicker-div .ui-datepicker-prev .ui-icon-circle-triangle-w,
+#ui-datepicker-div .ui-datepicker-next .ui-icon-circle-triangle-e {
+   position:relative;
+   top:0;
+   left:0;
+}
+#ui-datepicker-div .ui-datepicker-next .ui-icon-circle-triangle-e {
+   margin-left:12px;
+}
+#ui-datepicker-div .ui-datepicker-prev .ui-icon-circle-triangle-w {
+   background:transparent url(../images/icons/bullet_grey_arrow_left_12.png) 0 0 no-repeat;
+}
+#ui-datepicker-div .ui-datepicker-next .ui-icon-circle-triangle-e {
+   background:transparent url(../images/icons/bullet_grey_arrow_right_12.png) 0 0 no-repeat;
+}
+#ui-datepicker-div .ui-datepicker-title {
+   float:right;
+   line-height:1em;
+   cursor:default !important;
+   padding-top:1px;
+}
+#ui-datepicker-div td a.ui-state-default {
+   background:none;
+   border:none;
+}
+#ui-datepicker-div .ui-datepicker-calendar thead tr {
+   border-bottom:4px solid rgb(255,255,255) !important;
+}
+#ui-datepicker-div .ui-datepicker-calendar tbody tr {
+   border-bottom:2px solid rgb(255,255,255) !important;
+}
+#ui-datepicker-div .ui-datepicker-calendar td {
+   background-color:rgb(235,235,235);
+   border:none;
+   text-align:center;
+   padding-top:2px;
+   padding-bottom:2px;
+   opacity:1 !important;
+}
+#ui-datepicker-div .ui-datepicker-calendar td a {
+   text-align:center;
+   color:rgb(0,0,0);
+}
+#ui-datepicker-div .ui-datepicker-calendar td:not(.ui-state-disabled):hover {
+   background-color:rgb(205,205,205);
+}
+#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-current-day,
+#ui-datepicker-div .ui-datepicker-calendar td.ui-state-active {
+   background-color:rgb(159,159,159);
+}
+#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-current-day a {
+   color:rgb(255,255,255) !important;
+}
+#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-today {
+   background-color:rgb(112,181,236);
+}
+#ui-datepicker-div .ui-datepicker-calendar td:nth-child(1) {
+   border-top-left-radius:20px;
+   border-bottom-left-radius:20px;
+}
+#ui-datepicker-div .ui-datepicker-calendar td:nth-child(7) {
+   border-top-right-radius:20px;
+   border-bottom-right-radius:20px;
+}
+
+#ui-datepicker-div .ui-datepicker-buttonpane {
+   border:0 !important;
+   height:0 !important;
+}
+
+#ui-datepicker-div button.ui-datepicker-current {
+   position:absolute;
+   top:3px;
+   left:18px;
+   border:0;
+   width:12px;
+   height:12px;
+   background:transparent url(../images/icons/bullet_grey_dot_diamond_12.png) 0 0 no-repeat;
+   text-indent:-9999px;
+}
+#ui-datepicker-div button.ui-datepicker-close {
+   display:none !important;
+}
+
+.disabled_display{color : rgb(138,128,128);}
+
+#docContainer .selected-object {
+   background-color: rgba(0,0,0,0.08);
+   -webkit-box-shadow: 0 0 5px rgba(120,120,120,0.6);   
+}
+
+/*TO_DO:MANAGE PAYMENTS SPECIAL FIELDS/*/
+
+#controls #fb-pp-input-payments {
+   width:150px;
+   margin-right:2px;
+}
+
+#controls #payment_combo_container{
+    margin-bottom:2px;
+}
+
+#controls #label_input_invoice{
+	padding-left:0px;	
+}
+#controls #fb-pp-input-use-invoice-label{
+	margin-bottom:0px;
+}
+#controls #fb-pp-input-invoice-label{
+	margin-left:17px;
+	width:150px;
+}
+
+#controls #fb-pp-input-price{
+	margin-left:3px;
+	width:127px;
+	text-align:right;	
+}
+
+#controls span#fb-help-fieldpayment, #controls span#fb-help-fieldconditionals, 
+#controls span#fb-help-html-element, #controls span#fb-add-html-element {
+	  display:block;
+}
+
+/*TO_DO:MANAGE PAYMENTS SPECIAL FIELDS. End*/

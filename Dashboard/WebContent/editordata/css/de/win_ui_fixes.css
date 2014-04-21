@@ -1,0 +1,44 @@
+#controls {
+   width:347px;
+}
+
+#controls #controlset { clear:left; padding:7px 0 0 10px; height:100%; overflow:scroll; }
+
+#controls #controlset div.controlpane fieldset {
+   width:320px;
+}
+
+#controls #control_toolbar a {
+   width:115px;
+}
+
+#controls .drag_tool, #controls .controls_static, #drag_tool_temp {
+   margin:0 2px 6px 0;
+   width:154px;
+}
+
+#controls .primary_middle {
+   margin-top:18px;
+}
+
+ #controls label.label_contextual_stepper_number input {
+ 	margin-top:14px;
+}
+
+ #controls .date_min_left, #controls .date_max_left {
+    margin-top:18px;
+ }
+
+ 
+#controls #fb-pp-span-margin-top,
+#controls #fb-pp-span-item-padding-top {
+	margin-left:0px;
+}
+
+#controls  #fb-pp-input-item-padding-left,#controls #fb-pp-submit-padding-left{
+margin-right:15px;
+}
+
+#controls #captcha_theme_label{
+	margin-right:17px;
+}

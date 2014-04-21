@@ -1,0 +1,184 @@
+/** Colorpiker Styles for Mac Platforms **/
+
+.colorpicker {
+   width: 356px;
+   height: 199px;
+   overflow: hidden;
+   position: absolute;
+   background:transparent url(../images/colorpicker_background.png) 0 0 no-repeat;
+   font-family:"lucida grande",helvetica,sans-serif;
+   display: none;
+   z-index:1000;
+   -webkit-box-shadow: 0 0 30px rgba(120,120,120,0.8);
+}
+#colorpicker_window_controls {
+   position: absolute;
+   display:block;
+   top:4px;
+   left:8px;
+   width:56px;
+   height:15px;
+   background:transparent url(../images/window_controls.png) 0 0 no-repeat;
+   z-index:1;
+}
+#colorpicker_window_controls:hover {
+   background:transparent url(../images/window_controls_hover.png) 0 0 no-repeat;
+}
+#colorpicker_window_controls a {
+   display:inline-block;
+   width:15px;
+   height:15px;
+}
+#colorpicker_dialog_title {
+   position:absolute;
+   top:3px;
+   left:0;
+   color:rgb(0,0,0);
+   text-shadow:0px 0px 1px rgba(255,255,255,.7);
+   font-family:"lucida grande",helvetica,sans-serif;
+   font-size:13px;
+   width:356px;
+   text-align:center;
+}
+
+.colorpicker_color {
+   width: 150px;
+   height: 150px;
+   left: 12px;
+   top: 36px;
+   position: absolute;
+   background: #f00;
+   overflow: hidden;
+   cursor: crosshair;
+}
+.colorpicker_color div {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 150px;
+   height: 150px;
+   background: url(../images/colorpicker_overlay.png);
+}
+.colorpicker_color div div {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 11px;
+   height: 11px;
+   overflow: hidden;
+   background: url(../images/colorpicker_select.gif);
+   margin: -5px 0 0 -5px;
+}
+.colorpicker_hue {
+   position: absolute;
+   top: 36px;
+   left: 171px;
+   width: 35px;
+   height: 150px;
+   cursor: default !important;
+   background: url(../images/colorpicker_spectrum.png) 8px 0 no-repeat;
+}
+.colorpicker_hue:active {
+   cursor: default !important;
+}
+
+.colorpicker_hue div {
+   position: absolute;
+   width: 35px;
+   height: 9px;
+   overflow: hidden;
+   background: url(../images/custom_indic.gif) left top;
+   margin: -4px 0 0 0;
+   left: 0px;
+   cursor: default !important;
+}
+.colorpicker_new_color {
+   position: absolute;
+   width: 60px;
+   height: 30px;
+   left: 213px;
+   top: 36px;
+   background: #f00 url(../images/colorpicker_swatch_background.png) 0 0 no-repeat;
+}
+.colorpicker_current_color {
+   position: absolute;
+   width: 60px;
+   height: 30px;
+   left: 283px;
+   top: 36px;
+   background:#f00 url(../images/colorpicker_swatch_background.png) 0 0 no-repeat;
+}
+.colorpicker input[type=text] {
+   position: absolute;
+   margin: 0;
+   padding: 1px;
+   color: rgb(0,0,0);
+   font-size: 10px;
+   text-align: right;
+   background-color: rgba(255,255,255,1);
+   border-top:1px solid rgba(132,132,132,1);
+   border-right:1px solid rgba(193,193,193,1);
+   border-bottom:1px solid rgba(225,225,225,1);
+   border-left:1px solid rgba(193,193,193,1);
+   -webkit-box-shadow: inset 0 1px .5px rgba(0,0,0,0.2);
+}
+.colorpicker_hex {
+   position: absolute;
+   width: 68px;
+   left: 204px;
+   top: 152px;
+}
+.colorpicker_hex input {
+   right:0;
+}
+.colorpicker_field {
+   width: 60px;
+   position: absolute;
+   font-size:12px;
+}
+.colorpicker_field input {
+   right:0;
+}
+.colorpicker_field span {
+   position:absolute;
+   overflow:hidden;
+   top:1px;
+   left:0;
+   width:20px;
+   text-align:right;
+}
+.colorpicker_rgb_r {
+   top: 76px;
+   left: 212px;
+}
+.colorpicker_rgb_g {
+   top: 100px;
+   left: 212px;
+}
+.colorpicker_rgb_b {
+   top: 125px;
+   left: 212px;
+}
+.colorpicker_hsb_h {
+   top: 76px;
+   left: 282px;
+}
+.colorpicker_hsb_s {
+   top: 100px;
+   left: 282px;
+}
+.colorpicker_hsb_b {
+   top: 125px;
+   left: 282px;
+}
+.colorpicker_submit {
+   position: absolute;
+   left: 293px;
+   top: 165px;
+}
+.colorpicker_hex.colorpicker_focus {
+   background-position: bottom;
+}
+.colorpicker_slider {
+   background-position: bottom;
+}

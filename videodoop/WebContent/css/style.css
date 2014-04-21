@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, div, h1, h2, h3, p, ul, ol, li, img, header, section, aside, footer, button {
+	margin: 0; padding: 0; border: 0; list-style: none;
+}
+
+body {
+	background: #f6f6ee url(../images/bck3.png);
+	font-family : "Ubuntu", "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	}
+	
+h1, h2, h3 {
+	font-family: Ubuntu, Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+	font-weight: normal;
+}
+
+/* Header */
+
+header#site_head {
+	background: url(../images/header.png);
+	-moz-box-shadow: inset 0px -2px 3px #515151;
+	-khtml-box-shadow: inset 0px -2px 3px #515151;
+	-webkit-box-shadow: inset 0px -2px 3px #515151;
+	box-shadow: inset 0px -2px 3px #480508;
+	border-bottom: 1px solid #fffffb;
+	height: 60px;
+	width: 100%;
+	display: block;
+}
+
+	.header_cont {
+		width: auto;
+		margin: 0 auto;
+		padding-top: 10px;
+		
+	}
+	
+	nav.head_nav
+	{
+		padding-top: 10px;	
+	}
+	
+	.header_cont h1 {
+			text-indent:-9999px;
+			float: left;
+			padding-left: 50px;
+		}
+
+		.header_cont h1 a {
+			background: url(../images/name2.jpg) no-repeat;
+			width: 180px;
+			height: 45px;
+			display: block;
+		}
+		
+		nav.head_nav {
+			float: right;
+			margin-top: 13px;
+		}
+
+		nav.head_nav ul li {
+			display: inline;
+			margin: 0px 30px;
+		}
+		
+		nav.head_nav ul li a {
+				color:#e2e2e2;  
+    			font-family:Verdana, Arial, Helvetica, sans-serif;  
+    			text-decoration:none; 
+    			font-size:13px;  
+    			font-weight:bold;  
+    			text-transform:capitalize;
+			}
+			
+		nav.head_nav ul li a:hover {
+				color: #f6f6ff;
+			}
+
+	div.logo
+	{
+		padding-top: 75px;	
+		
+	}
+	div.logo img
+	{
+			width: 400px;
+			height: 140px;
+	}
+	
+	div.upload
+	{
+		padding-top:20px;	
+	}
+	
+	div.result
+	{
+		padding-top:30px;
+		font: Verdana, Arial, Helvetica, sans-serif;
+		font-size:14px;
+		text-transform:capitalize;  
+	}
+
+#field{
+border: none;
+}
